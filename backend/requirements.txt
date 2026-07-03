@@ -1,0 +1,46 @@
+# Web framework — FastAPI is what we use to build our API endpoints
+fastapi==0.111.0
+
+# ASGI server — this actually RUNS FastAPI (like a waiter serving the restaurant)
+uvicorn[standard]==0.29.0
+
+# Database ORM — lets us write Python instead of raw SQL to talk to Supabase/PostgreSQL
+sqlalchemy==2.0.30
+
+# Database migrations — tracks and applies changes to our DB schema over time
+alembic==1.13.1
+
+# PostgreSQL driver — psycopg3 with binary extras (supports Python 3.14)
+# NOTE: also update database.py to use "postgresql+psycopg://" prefix
+psycopg[binary]>=3.2.10
+
+# Data validation — validates and parses incoming request data automatically
+pydantic==2.7.1
+
+# Loads our .env file into settings automatically
+pydantic-settings==2.2.1
+
+# JWT library — creates and verifies login tokens
+python-jose[cryptography]==3.3.0
+
+# Password hashing — securely hashes passwords using bcrypt
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# Required for FastAPI to accept form data and file uploads (CSV import)
+python-multipart==0.0.9
+
+# HTTP client — used to call Nomba's API from our backend
+httpx==0.27.0
+
+# Background job scheduler — runs our nightly reconciliation job at midnight
+apscheduler==3.10.4
+
+# Serverless Redis client — used for idempotency keys (prevent double webhook processing)
+upstash-redis==1.1.0
+
+# Used for encrypting sensitive data
+cryptography==42.0.7
+
+# Loads .env files
+python-dotenv==1.0.1
