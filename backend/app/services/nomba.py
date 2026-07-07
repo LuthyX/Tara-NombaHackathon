@@ -153,7 +153,7 @@ class NombaService:
                     headers=headers,
                     json={
                         "accountRef" : customer_id,
-                        "accountName": f"{business_name} / {customer_name}",
+                        "accountName": f"{business_name} {customer_name}",
                         "currency"   : "NGN",
                         "callbackUrl": "https://tara-nombahackathon.onrender.com/api/v1/webhooks/nomba",
                     },
