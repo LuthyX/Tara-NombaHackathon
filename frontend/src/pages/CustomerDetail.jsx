@@ -444,6 +444,15 @@ export default function CustomerDetail() {
               </div>
             </div>
           </div>
+          {/* Print Statement button */}
+        <button
+          onClick={() => window.print()}
+          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-gray-700 text-gray-400 hover:text-white hover:border-gray-600 text-sm transition-colors"
+        >
+          <FileText className="w-4 h-4" />
+          Export statement
+        </button>
+          
 
           {/* Added date */}
           <div className="bg-[#1a1d27] border border-gray-800 rounded-xl p-4 text-xs text-gray-600 text-center">

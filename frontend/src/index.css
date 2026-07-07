@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media print {
+  /* Hide everything except the customer detail content */
+  nav,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Make text readable on paper */
+  .text-white { color: #000 !important; }
+  .text-gray-400 { color: #444 !important; }
+  .text-gray-500 { color: #555 !important; }
+  .text-gray-600 { color: #666 !important; }
+
+  /* Remove dark backgrounds */
+  .bg-\[\#0f1117\],
+  .bg-\[\#1a1d27\],
+  .bg-\[\#22263a\] {
+    background: white !important;
+  }
+
+  /* Keep borders visible */
+  .border-gray-800,
+  .border-gray-700 {
+    border-color: #ddd !important;
+  }
+}
