@@ -135,3 +135,8 @@ def root():
         "message": f"Welcome to the {settings.APP_NAME} API",
         "docs"   : "/docs",
     }
+
+@app.get("/health")
+@app.head("/health")  # ← add this line
+def health_check():
+    return {"status": "ok", "app": settings.APP_NAME}
