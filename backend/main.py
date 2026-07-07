@@ -85,7 +85,8 @@ app.add_middleware(
     CORSMiddleware,
     # Which origins (domains) are allowed to call our API
     allow_origins=[
-        settings.FRONTEND_URL,       # from .env (e.g. https://tara.vercel.app)
+        settings.FRONTEND_URL, 
+        "https://tara-nomba-hackathon.vercel.app",  
         "http://localhost:5173",     # Vite dev server
         "http://localhost:3000",     # alternative React dev port
     ],
