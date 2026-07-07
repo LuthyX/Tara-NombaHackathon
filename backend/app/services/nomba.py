@@ -149,19 +149,13 @@ class NombaService:
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    f"{self.base_url}/accounts/virtual",
+                    f"{self.base_url}/accounts/virtual/{self.sub_account_id}",
                     headers=headers,
                     json={
-                        # accountRef: our unique reference for this virtual account
-                        # We use customer_id so we can identify the customer from webhooks
                         "accountRef" : customer_id,
-
-                        # accountName: displayed to the payer when they transfer money
                         "accountName": f"{business_name} / {customer_name}",
-
-                        # bvn: Bank Verification Number — optional in sandbox
-                        # In production, this may be required for compliance
-                        "bvn": "",
+                        "currency"   : "NGN",
+                        "callbackUrl": "https://tara-nombahackathon.onrender.com/api/v1/webhooks/nomba",
                     },
                     timeout=30.0,
                 )
@@ -222,7 +216,7 @@ class NombaService:
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.get(
-                    f"{self.base_url}/transactions/accounts",
+                    f"{self.base_url}/transactions/accounts/{self.sub_account_id}",
                     headers=headers,
                     params={
                         "startDate": start_date,
